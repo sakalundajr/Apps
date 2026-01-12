@@ -1,0 +1,8 @@
+{
+  "name": "Copy of TradePulse Social",
+  "description": "A high-performance social network for traders, bettors, and crypto enthusiasts featuring real-time market data, AI-driven trade analysis, and community insights.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
