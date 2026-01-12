@@ -8,7 +8,7 @@ const Chat: React.FC = () => {
     {
       id: '1',
       senderId: 'ai',
-      text: "Hello! I am your TradePulse AI Assistant. Ask me anything about the markets, trade strategies, or current price trends. How can I help you profit today?",
+      text: "Hello! I am your Multi Signal Hub AI Assistant. Ask me anything about the markets, trade strategies, or current price trends. How can I help you profit today?",
       timestamp: Date.now(),
       isAi: true
     }
@@ -60,10 +60,10 @@ const Chat: React.FC = () => {
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-900"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
           </div>
           <div>
-            <h2 className="font-bold">Market Analyst AI</h2>
+            <h2 className="font-bold">Hub AI Analyst</h2>
             <div className="flex items-center gap-1">
               <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-              <span className="text-xs text-slate-400">Online</span>
+              <span className="text-xs text-slate-400">Syncing Intelligence</span>
             </div>
           </div>
         </div>
@@ -101,11 +101,11 @@ const Chat: React.FC = () => {
         <div className="relative">
           <input 
             type="text" 
-            placeholder="Ask about BTC sentiment or EUR/USD resistance..."
+            placeholder="Ask for analysis, trends, or support levels..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-            className="w-full bg-slate-800 border border-slate-700 rounded-2xl px-5 py-4 pr-14 focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-sm"
+            className="w-full bg-slate-800 border border-slate-700 rounded-2xl px-5 py-4 pr-14 focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-sm text-slate-100"
           />
           <button 
             onClick={handleSend}
@@ -116,7 +116,7 @@ const Chat: React.FC = () => {
           </button>
         </div>
         <p className="text-[10px] text-slate-500 mt-2 text-center uppercase tracking-widest font-bold">
-          Not financial advice. Trade at your own risk.
+          High-performance analysis provided by Gemini. Always manage your risk.
         </p>
       </div>
     </div>

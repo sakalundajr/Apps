@@ -14,7 +14,7 @@ const App: React.FC = () => {
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    const savedUser = localStorage.getItem('trade_pulse_user');
+    const savedUser = localStorage.getItem('multi_signal_hub_user');
     if (savedUser) {
       setCurrentUser(JSON.parse(savedUser));
     }
@@ -23,15 +23,15 @@ const App: React.FC = () => {
 
   const handleLogin = (user: User) => {
     setCurrentUser(user);
-    localStorage.setItem('trade_pulse_user', JSON.stringify(user));
+    localStorage.setItem('multi_signal_hub_user', JSON.stringify(user));
   };
 
   const handleLogout = () => {
     setCurrentUser(null);
-    localStorage.removeItem('trade_pulse_user');
+    localStorage.removeItem('multi_signal_hub_user');
   };
 
-  if (!isInitialized) return <div className="min-h-screen bg-slate-900 flex items-center justify-center">Loading...</div>;
+  if (!isInitialized) return <div className="min-h-screen bg-slate-900 flex items-center justify-center text-emerald-400 font-bold">Initializing Hub...</div>;
 
   if (!currentUser) {
     return <Auth onLogin={handleLogin} />;
@@ -42,17 +42,17 @@ const App: React.FC = () => {
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex flex-col w-64 bg-slate-900 border-r border-slate-800 p-4 sticky top-0 h-screen">
         <div className="flex items-center gap-2 mb-8 px-2">
-          <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center font-bold text-slate-900">TP</div>
-          <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">
-            TradePulse
+          <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center font-black text-slate-900 text-xs shadow-lg shadow-emerald-500/20">MSH</div>
+          <h1 className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 leading-tight">
+            Multi Signal<br/>Hub
           </h1>
         </div>
         
         <nav className="flex-1 flex flex-col gap-2">
-          <NavItem active={activeTab === AppTab.FEED} onClick={() => setActiveTab(AppTab.FEED)} icon={<ICONS.Home />} label="Home Feed" />
-          <NavItem active={activeTab === AppTab.MARKETS} onClick={() => setActiveTab(AppTab.MARKETS)} icon={<ICONS.Trending />} label="Market Data" />
+          <NavItem active={activeTab === AppTab.FEED} onClick={() => setActiveTab(AppTab.FEED)} icon={<ICONS.Home />} label="Hub Feed" />
+          <NavItem active={activeTab === AppTab.MARKETS} onClick={() => setActiveTab(AppTab.MARKETS)} icon={<ICONS.Trending />} label="Live Signals" />
           <NavItem active={activeTab === AppTab.CHAT} onClick={() => setActiveTab(AppTab.CHAT)} icon={<ICONS.Message />} label="AI Analyst" />
-          <NavItem active={activeTab === AppTab.PROFILE} onClick={() => setActiveTab(AppTab.PROFILE)} icon={<ICONS.User />} label="My Profile" />
+          <NavItem active={activeTab === AppTab.PROFILE} onClick={() => setActiveTab(AppTab.PROFILE)} icon={<ICONS.User />} label="Profile" />
         </nav>
 
         <div className="mt-auto p-4 bg-slate-800/50 rounded-xl border border-slate-700">
@@ -71,8 +71,8 @@ const App: React.FC = () => {
       <main className="flex-1 flex flex-col min-h-screen max-w-4xl mx-auto w-full pb-20 md:pb-0">
         <header className="md:hidden flex items-center justify-between p-4 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center font-bold text-slate-900">TP</div>
-            <span className="font-bold">TradePulse</span>
+            <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center font-black text-slate-900 text-[10px]">MSH</div>
+            <span className="font-bold text-sm">Multi Signal Hub</span>
           </div>
           <img src={currentUser.avatar} className="w-8 h-8 rounded-full" alt="avatar" />
         </header>
@@ -104,7 +104,7 @@ const NavItem: React.FC<{ active: boolean; onClick: () => void; icon: React.Reac
     }`}
   >
     {icon}
-    <span className="font-medium">{label}</span>
+    <span className="font-medium text-sm">{label}</span>
   </button>
 );
 

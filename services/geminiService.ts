@@ -9,7 +9,7 @@ export const analyzeMarketQuery = async (query: string) => {
       model: 'gemini-3-flash-preview',
       contents: `As a professional financial analyst specializing in Forex, Crypto, and Betting, analyze the following user query: "${query}". Provide a concise, professional opinion, potential support/resistance levels if applicable, and a sentiment score from 1-10.`,
       config: {
-        systemInstruction: "You are the TradePulse AI Assistant. Your goal is to provide expert financial insights while reminding users that trading involves risk.",
+        systemInstruction: "You are the Multi Signal Hub AI Assistant. Your goal is to provide expert financial insights while reminding users that trading involves risk.",
       }
     });
     return response.text;
@@ -26,7 +26,7 @@ export const analyzePostImage = async (base64Image: string, prompt: string) => {
       contents: {
         parts: [
           { inlineData: { mimeType: 'image/png', data: base64Image } },
-          { text: `Analyze this chart or financial image. ${prompt}` }
+          { text: `Analyze this chart or financial image for the Multi Signal Hub community. ${prompt}` }
         ]
       }
     });
